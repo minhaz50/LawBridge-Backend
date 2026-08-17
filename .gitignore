@@ -1,11 +1,17 @@
 node_modules
-dist
-generated
 .env
+.env.*
+!.env.example
+dist
+
+/src/generated
 
 /generated/prisma
 .agents
 .claude
 .windsurf
 
+# Lock Files
 skills-lock.json
+package-lock.json
+
