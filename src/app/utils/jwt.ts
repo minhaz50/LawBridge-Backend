@@ -27,7 +27,7 @@ const verifyToken = (token: string, secret: string) => {
   }
 };
 
-export const jwtUtinls = {
+export const jwtUtils = {
   createToken,
   verifyToken,
 };

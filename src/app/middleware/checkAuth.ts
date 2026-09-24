@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { Role } from "../../generated/prisma/enums";
 import { catchAsync } from "../utils/catchAsync";
-import { jwtUtinls } from "../utils/jwt";
+import { jwtUtils } from "../utils/jwt";
 import config from "../config";
 import { JwtPayload } from "jsonwebtoken";
 import { prisma } from "../lib/prisma";
@@ -32,10 +32,7 @@ export const auth = (...requiredRoles: Role[]) => {
         "You are not logged in. Please log in to access this resource.",
       );
     }
-    const verifiedToken = jwtUtinls.verifyToken(
-      token,
-      config.jwt_access_secret,
-    );
+    const verifiedToken = jwtUtils.verifyToken(token, config.jwt_access_secret);
 
     if (!verifiedToken.success) {
       throw new Error(verifiedToken.error);
