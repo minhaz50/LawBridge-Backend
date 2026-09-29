@@ -8,9 +8,9 @@ const router = Router();
 router.post("/register", AuthController.registerclient);
 router.post("/login", AuthController.loginUser);
 router.get(
-  "/me",
-  auth(Role.ADMIN, Role.LAWYER, Role.CLIENT, Role.SUPER_ADMIN),
-  AuthController.getMe,
+	"/me",
+	auth(Role.ADMIN, Role.LAWYER, Role.CLIENT, Role.SUPER_ADMIN),
+	AuthController.getMe,
 );
 router.post("/refresh-token", AuthController.refreshToken);
 export const AuthRoutes = router;
