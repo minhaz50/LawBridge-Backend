@@ -19,6 +19,7 @@ import type {
 
 const registerClient = async (payload: IRegisterClientPayload) => {
 	const { name, password, client: clientData } = payload;
+	console.log(name, password);
 	const email = payload.email.trim().toLowerCase();
 
 	const isUserExists = await prisma.user.findUnique({
@@ -40,7 +41,7 @@ const registerClient = async (payload: IRegisterClientPayload) => {
 			status: UserStatus.ACTIVE,
 			emailVerified: false,
 			client: {
-				create: { name, email, clientData: clientData?.contactNumber || "" },
+				create: { name, email, contactNumber: clientData?.contactNumber || "" },
 			},
 		},
 		omit: { password: true },
