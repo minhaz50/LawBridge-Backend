@@ -1,4 +1,4 @@
-import z, { email } from "zod";
+import z from "zod";
 
 const ClientRegistrationZodSchema = z.object({
   name: z.string().min(3, "Name must be atleast 3 characters long!").max(10),
